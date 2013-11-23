@@ -1,0 +1,25 @@
+<% @pet.errors.full_messages.each do |msg| %>
+	<div><%= msg %></div>
+<% end %>
+<%= form_for @pet do |f| %>
+	<div>
+		<%= f.label :name, "Pet Name" %>
+		<%= f.text_field :name %>
+	</div>
+	<div>
+		<%= f.label :color, "Pet Color" %>
+		<%= f.text_field :color %>
+	</div>
+	<div>
+		<%= f.label :age, "Pet Age" %>
+		<%= f.text_field :age %>
+	</div>
+	<div>
+		<%= f.label :owner, "Owner Name" %>
+		<%= f.text_field :owner %>
+	</div>
+	<div>
+		<%= f.check_box :terms %> I agree to terms of service
+	</div>
+		<%= f.submit "Save" %>
+<% end %>
