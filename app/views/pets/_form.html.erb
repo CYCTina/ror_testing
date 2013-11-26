@@ -1,6 +1,7 @@
 <% @pet.errors.full_messages.each do |msg| %>
 	<div><%= msg %></div>
 <% end %>
+
 <%= form_for @pet do |f| %>
 	<div>
 		<%= f.label :name, "Pet Name" %>

@@ -18,6 +18,20 @@ class PetsController < ApplicationController
   end
 end
 
+def edit
+  @pet = Pet.find(params[:id])
+  raise @pet.inspect
+end
+
+def update
+  @pet = Pet.find(params[:id])
+
+  if @pet.update(pet_params)
+    redirect_to pets_url
+  else
+    render 'new'
+  end
+end
 
 private
 
