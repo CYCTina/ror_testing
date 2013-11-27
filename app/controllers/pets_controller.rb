@@ -16,25 +16,27 @@ class PetsController < ApplicationController
   		render 'new'
   	end
   end
-end
 
-def edit
-  @pet = Pet.find(params[:id])
-  raise @pet.inspect
-end
-
-def update
-  @pet = Pet.find(params[:id])
-
-  if @pet.update(pet_params)
-    redirect_to pets_url
-  else
-    render 'new'
+  def edit
+    @pet = Pet.find(params[:id])
   end
-end
 
-private
+  def update
+    @pet = Pet.find(params[:id])
 
-def pet_params
-	params.require(:pet).permit(:name, :color, :age, :owner, :terms)
+    if @pet.update(pet_params)
+      redirect_to pets_url
+    else
+      render 'new'
+    end
+  end
+
+
+  private
+
+  def pet_params
+   params.require(:pet).permit(:name, :color, :age, :owner, :terms)
+ end
+
+
 end
